@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: opentelemetry-instrumentation-kafka-python
-  version: "0.58b0"
+  version: "0.57b0"
 
 package:
   name: ${{ name|lower }}
