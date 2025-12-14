@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: opentelemetry-instrumentation-kafka-python
-  version: "0.60b0"
+  version: "0.60b1"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/opentelemetry_instrumentation_kafka_python-${{ version }}.tar.gz
-  sha256: 03c9b8b58b5b40b5b453ea5b60db90b8a78a9212ce42a3ff4963ff35651de60b
+  sha256: 64be84f9df228ad5adaa149e88e4c5792515c2b2431a49d6dc14591028a53e60
 
 build:
   number: 0
