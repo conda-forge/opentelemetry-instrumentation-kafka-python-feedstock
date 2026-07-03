@@ -2,16 +2,15 @@
 schema_version: 1
 
 context:
-  name: opentelemetry-instrumentation-kafka-python
-  version: "0.63b1"
+  version: "0.64b0"
 
 package:
-  name: ${{ name|lower }}
+  name: opentelemetry-instrumentation-kafka-python
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/opentelemetry_instrumentation_kafka_python-${{ version }}.tar.gz
-  sha256: b572bd9f02b5efe18292442190924bef9b86a51436c9d120745a950a584fe5f8
+  url: https://pypi.org/packages/source/o/opentelemetry-instrumentation-kafka-python/opentelemetry_instrumentation_kafka_python-${{ version }}.tar.gz
+  sha256: 0b2b58ba1fc38fac7124306d541be04e8c4441b2973961261037d84fa268a7e4
 
 build:
   number: 0
@@ -21,27 +20,32 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - hatchling
     - pip
+    - hatchling
   run:
-    - python >=${{ python_min }},<4.0
-    - kafka-python >=2.0,<3.0
+    - python >=${{ python_min }}
     - opentelemetry-api >=1.5,<2.dev0
     - opentelemetry-instrumentation ==${{ version }}
     - opentelemetry-semantic-conventions ==${{ version }}
+    - kafka-python >=2.0,<3.0
 
 tests:
   - python:
       imports:
         - opentelemetry.instrumentation.kafka
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
-  summary: OpenTelemetry Kafka-Python instrumentation
   homepage: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-kafka-python
   license: Apache-2.0
   license_file: LICENSE
+  summary: OpenTelemetry Kafka-Python instrumentation
+  description: |
+    OpenTelemetry Kafka-Python instrumentation
+  repository: https://github.com/open-telemetry/opentelemetry-python-contrib
 
 extra:
   recipe-maintainers:
