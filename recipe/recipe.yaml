@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.65b0"
+  version: 0.66b0
 
 package:
   name: opentelemetry-instrumentation-kafka-python
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/o/opentelemetry-instrumentation-kafka-python/opentelemetry_instrumentation_kafka_python-${{ version }}.tar.gz
-  sha256: e909be2bfacfd5d271bb3249b3f393348bbe4ebbc57e87983345cb253d419c4b
+  sha256: 62d18487852dca8ccb5ddbef1ab1057d587c5f3cca902eacdb616449a4c138c1
 
 build:
   number: 0
@@ -27,8 +27,8 @@ requirements:
     - opentelemetry-api >=1.5,<2.dev0
     - opentelemetry-instrumentation ==${{ version }}
     - opentelemetry-semantic-conventions ==${{ version }}
-    - kafka-python >=2.0,<3.0
-
+    - opentelemetry-instrumentation ==0.66b0
+    - opentelemetry-semantic-conventions ==0.66b0
 tests:
   - python:
       imports:
@@ -36,7 +36,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - "*"
+        - '*'
 
 about:
   homepage: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-kafka-python
